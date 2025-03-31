@@ -20,13 +20,25 @@ import {
   Specifics,
   NearbyJobCard,
 } from "../components";
-
+import { useState } from "react";
+import { useRouter } from "expo-router";
 
 export default function HomeScreen() {
+  const [searchTerm, setSearchTerm] = useState("");
+  const router = useRouter()
+
   return (
-    <ScrollView showsVerticalScrollIndicator={false} >
+    <ScrollView showsVerticalScrollIndicator={false}>
       <View style={{ flex: 1, padding: SIZES.medium }}>
-        <Welcome />
+        <Welcome
+          searchTerm={searchTerm}
+          setSearchTerm={setSearchTerm}
+          handleClick={() => {
+            if (searchTerm) {
+              router.push(`search/${searchTerm}`);
+            }
+          }}
+        />
         <Popularjobs />
         <Nearbyjobs />
       </View>
