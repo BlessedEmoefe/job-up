@@ -15,7 +15,11 @@ import { COLORS, icons, SIZES } from "../../constants";
 import styles from "../../styles/search";
 
 const JobSearch = () => {
-  const {searchTerm} = useLocalSearchParams();
+  const params = useLocalSearchParams();
+  const { searchTerm,id } = params;
+  console.log("SearchTerm Now", JSON.stringify(params.id, null, 2));
+
+  
   const router = useRouter();
 
   const [searchResult, setSearchResult] = useState([]);
@@ -36,7 +40,7 @@ const JobSearch = () => {
           "X-RapidAPI-Host": "jsearch.p.rapidapi.com",
         },
         params: {
-          query: searchTerm.id,
+          query: id,
           page: page.toString(),
         },
       };
@@ -51,7 +55,7 @@ const JobSearch = () => {
     }
   };
 
-  console.log("SearchTerm",searchTerm.id)
+  console.log("SearchTerm", id);
 
   const handlePagination = (direction) => {
     if (direction === "left" && page > 1) {
@@ -97,7 +101,7 @@ const JobSearch = () => {
         ListHeaderComponent={() => (
           <>
             <View style={styles.container}>
-              <Text style={styles.searchTitle}>{searchTerm.id}</Text>
+              <Text style={styles.searchTitle}>{id}</Text>
               <Text style={styles.noOfSearchedJobs}>Job Opportunities</Text>
             </View>
             <View style={styles.loaderContainer}>
