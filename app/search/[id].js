@@ -17,7 +17,7 @@ import styles from "../../styles/search";
 const JobSearch = () => {
   const params = useLocalSearchParams();
   const { searchTerm,id } = params;
-  console.log("SearchTerm Now", JSON.stringify(params.id, null, 2));
+  // console.log("SearchTerm Now", JSON.stringify(params.id, null, 2));
 
   
   const router = useRouter();
@@ -49,13 +49,13 @@ const JobSearch = () => {
       setSearchResult(response.data.data);
     } catch (error) {
       setSearchError(error);
-      console.log(error);
+      // console.log(error);
     } finally {
       setSearchLoader(false);
     }
   };
 
-  console.log("SearchTerm", id);
+  // console.log("SearchTerm", id);
 
   const handlePagination = (direction) => {
     if (direction === "left" && page > 1) {

@@ -37,7 +37,7 @@ export const useFetch = (endpoint, query) => {
     fetchData();
   }, []);
 
-  console.log("Data:",data)
+  // console.log("Data:",data)
 
   const refetch = () => {
     setIsLoading(true);

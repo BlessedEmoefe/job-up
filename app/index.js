@@ -26,7 +26,7 @@ import { useRouter } from "expo-router";
 export default function HomeScreen() {
   const [searchTerm, setSearchTerm] = useState("");
   const router = useRouter()
-  console.log("Yes",searchTerm)
+  // console.log("Yes",searchTerm)
 
   return (
     <ScrollView showsVerticalScrollIndicator={false}>
